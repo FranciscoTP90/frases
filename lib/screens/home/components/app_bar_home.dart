@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frases/screens/search/search_delegate_screen.dart';
 import 'package:frases/theme/colors.dart';
 
 class AppBarHome extends StatelessWidget with PreferredSizeWidget {
@@ -15,14 +16,17 @@ class AppBarHome extends StatelessWidget with PreferredSizeWidget {
           mini: true,
           elevation: 0.0,
           backgroundColor: ColorsApp.greyLight,
-          onPressed: () {},
+          onPressed: () =>
+              showSearch(context: context, delegate: PhraseSearchDelegate()),
           child: const Icon(Icons.search, color: Colors.grey),
         ),
         FloatingActionButton(
           mini: true,
           elevation: 0.0,
           backgroundColor: ColorsApp.greyLight,
-          onPressed: () {},
+          onPressed: () {
+            //TOOD: Enviar a Favoritos
+          },
           child: const Icon(Icons.favorite, color: ColorsApp.red),
         ),
         const SizedBox(width: 10.0)

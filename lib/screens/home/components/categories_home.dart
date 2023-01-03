@@ -31,6 +31,7 @@ class CategoriesHome extends StatelessWidget {
           final Category category = categories[index];
           return GestureDetector(
             onTap: () {
+              //TODO: ENVIAR A FRASES POR CATEGORIA
               // Navigator.push(context, PageRouteBuilder(
               //   pageBuilder: (context, animation, secondaryAnimation) {
               //     return FrasesByCategoryScreen(category: category);
