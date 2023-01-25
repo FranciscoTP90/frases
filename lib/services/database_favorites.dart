@@ -1,7 +1,7 @@
 import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart';
 
-import 'package:frases/models/phrase_model.dart';
+import '../models/phrase_model.dart';
 
 class FavoritesDatabase {
   static final FavoritesDatabase instance = FavoritesDatabase._init();

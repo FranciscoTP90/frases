@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/services/database_service.dart';
-import 'package:sqflite/sqflite.dart';
-
+import '../models/phrase_model.dart';
+import '../services/database_service.dart';
 import '../utils/pagination.dart';
+import 'package:flutter/foundation.dart';
+import 'package:sqflite/sqflite.dart';
 
 class PhrasesByCategoryProvider extends ChangeNotifier {
   bool _isLoading = false;

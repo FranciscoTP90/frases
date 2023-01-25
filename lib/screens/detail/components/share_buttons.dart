@@ -1,8 +1,8 @@
+import '../../../models/phrase_model.dart';
+import '../../../providers/providers.dart';
+import '../../../theme/colors.dart';
+import 'glassmorphism.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/providers/phrases_provider.dart';
-import 'package:frases/screens/detail/components/glassmorphism.dart';
-import 'package:frases/theme/colors.dart';
 import 'package:provider/provider.dart';
 
 class ShareButtons extends StatefulWidget {

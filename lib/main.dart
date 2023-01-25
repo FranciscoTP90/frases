@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:frases/providers/categories_provider.dart';
-import 'package:frases/providers/favorite_phrases_provider.dart';
-import 'package:frases/providers/phrases_by_category_provider.dart';
-import 'package:frases/providers/phrases_provider.dart';
-import 'package:frases/routes/routes.dart';
-import 'package:frases/theme/theme.dart';
 import 'package:provider/provider.dart';
+import 'providers/providers.dart';
+import 'routes/routes.dart';
+import 'theme/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,8 @@
+import 'dart:io' as io;
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
-import 'dart:io' as io;
 import 'package:path/path.dart' as path;
+import 'package:sqflite/sqflite.dart';
 
 class DatabaseService {
   static final DatabaseService db = DatabaseService._();

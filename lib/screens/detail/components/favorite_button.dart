@@ -1,7 +1,7 @@
+import '../../../models/phrase_model.dart';
+import '../../../providers/providers.dart';
+import '../../../theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/providers/favorite_phrases_provider.dart';
-import 'package:frases/theme/colors.dart';
 import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +30,6 @@ class _LikeButtonWidgetState extends State<FavoriteButton> {
 
     if (mounted) {
       setState(() {
-        // _isLiked = res;
         _isLiked = isFavorite;
       });
     }

@@ -1,8 +1,7 @@
+import '../../models/category_model.dart';
+import '../../providers/providers.dart';
+import '../../widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/category_model.dart';
-import 'package:frases/providers/phrases_by_category_provider.dart';
-import 'package:frases/widgets/app_bar_widget.dart';
-import 'package:frases/widgets/phrase_list_widget.dart';
 import 'package:provider/provider.dart';
 
 class PhrasesByCategoryScreen extends StatefulWidget {

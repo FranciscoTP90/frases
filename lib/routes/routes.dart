@@ -1,8 +1,4 @@
-import 'package:frases/screens/categories/categories_screen.dart';
-import 'package:frases/screens/detail/detail_screen.dart';
-import 'package:frases/screens/home/home_screen.dart';
-import 'package:frases/screens/phrases/favorite_phrases_screen.dart';
-import 'package:frases/screens/phrases/phrases_screen.dart';
+import '../screens/screens.dart';
 
 class RoutesApp {
   static const String home = '/home';

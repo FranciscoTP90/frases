@@ -1,9 +1,9 @@
+import '../../models/phrase_model.dart';
+import 'components/back_button.dart';
+import 'components/favorite_button.dart';
+import 'components/phrase_img.dart';
+import 'components/share_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/screens/detail/components/back_button.dart';
-import 'package:frases/screens/detail/components/favorite_button.dart';
-import 'package:frases/screens/detail/components/phrase_img.dart';
-import 'package:frases/screens/detail/components/share_buttons.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
+import '../models/phrase_model.dart';
+import '../routes/routes.dart';
+import '../utils/assets_location.dart';
+import 'circular_progress_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/routes/routes.dart';
-import 'package:frases/utils/assets_location.dart';
-import 'package:frases/widgets/circular_progress_widget.dart';
 
 class PhraseListWidget extends StatelessWidget {
   final ScrollController? scrollController;

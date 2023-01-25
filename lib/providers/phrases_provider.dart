@@ -1,15 +1,14 @@
+import '../models/phrase_model.dart';
+import '../services/database_service.dart';
+import '../utils/debouncer.dart';
+import '../utils/pagination.dart';
 import 'dart:async';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/services/database_service.dart';
-import 'package:frases/utils/debouncer.dart';
-import 'package:frases/utils/pagination.dart';
+import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:http/http.dart' as http;
 
 class PhrasesProvider extends ChangeNotifier {
   bool _isLoading = false;

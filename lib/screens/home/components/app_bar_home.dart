@@ -1,7 +1,7 @@
+import '../../../routes/routes.dart';
+import '../../../theme/colors.dart';
+import '../../search/search_delegate_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/routes/routes.dart';
-import 'package:frases/screens/search/search_delegate_screen.dart';
-import 'package:frases/theme/colors.dart';
 
 class AppBarHome extends StatelessWidget with PreferredSizeWidget {
   const AppBarHome({super.key});

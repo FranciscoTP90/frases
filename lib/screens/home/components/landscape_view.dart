@@ -1,14 +1,13 @@
+import '../../../providers/providers.dart';
+import '../../../routes/routes.dart';
+import '../../../theme/colors.dart';
+import '../../../widgets/widgets.dart';
+import '../../screens.dart';
 import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/providers/categories_provider.dart';
-import 'package:frases/routes/routes.dart';
-import 'package:frases/screens/home/components/phrases_home.dart';
-import 'package:frases/screens/phrases/phrases_by_category_screen.dart';
-import 'package:frases/theme/colors.dart';
-import 'package:frases/widgets/circular_progress_widget.dart';
 import 'package:provider/provider.dart';
+import 'phrases_home.dart';
 
 class LandscapeView extends StatelessWidget {
   final double widthSize;

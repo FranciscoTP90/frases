@@ -1,6 +1,6 @@
+import '../../../utils/assets_location.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/utils/assets_location.dart';
 
 class PhraseImg extends StatelessWidget {
   final String imgUrl;

@@ -1,8 +1,7 @@
+import '../../models/phrase_model.dart';
+import '../../providers/providers.dart';
+import '../../widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/providers/phrases_provider.dart';
-import 'package:frases/widgets/circular_progress_widget.dart';
-import 'package:frases/widgets/phrase_list_widget.dart';
 import 'package:provider/provider.dart';
 
 class PhraseSearchDelegate extends SearchDelegate {

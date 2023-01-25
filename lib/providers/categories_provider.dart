@@ -1,8 +1,7 @@
+import '../models/category_model.dart';
+import '../services/database_service.dart';
+import '../utils/pagination.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:frases/models/category_model.dart';
-import 'package:frases/services/database_service.dart';
-import 'package:frases/utils/pagination.dart';
-
 import 'package:sqflite/sqflite.dart';
 
 class CategoriesProvider extends ChangeNotifier {

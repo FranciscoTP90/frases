@@ -1,7 +1,7 @@
+import '../models/phrase_model.dart';
+import '../services/database_favorites.dart';
+import '../utils/pagination.dart';
 import 'package:flutter/foundation.dart';
-import 'package:frases/models/phrase_model.dart';
-import 'package:frases/services/database_favorites.dart';
-import 'package:frases/utils/pagination.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FavoritePhrasesProvider extends ChangeNotifier {

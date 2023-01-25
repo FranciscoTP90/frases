@@ -1,16 +1,15 @@
+import '../../providers/providers.dart';
+import '../../routes/routes.dart';
+import '../../theme/colors.dart';
+import '../../widgets/widgets.dart';
+import 'components/app_bar_home.dart';
+import 'components/categories_home.dart';
+import 'components/landscape_view.dart';
+import 'components/phrases_home.dart';
 import 'package:flutter/material.dart';
-import 'package:frases/providers/categories_provider.dart';
-import 'package:frases/providers/phrases_provider.dart';
-import 'package:frases/routes/routes.dart';
-import 'package:frases/screens/home/components/app_bar_home.dart';
-import 'package:frases/screens/home/components/body_tablet.dart';
-import 'package:frases/screens/home/components/categories_home.dart';
-import 'package:frases/screens/home/components/phrases_home.dart';
-import 'package:frases/theme/colors.dart';
-import 'package:frases/widgets/circular_progress_widget.dart';
+import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
