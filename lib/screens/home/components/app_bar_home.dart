@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frases/routes/routes.dart';
 import 'package:frases/screens/search/search_delegate_screen.dart';
 import 'package:frases/theme/colors.dart';
 
@@ -25,7 +26,7 @@ class AppBarHome extends StatelessWidget with PreferredSizeWidget {
           elevation: 0.0,
           backgroundColor: ColorsApp.greyLight,
           onPressed: () {
-            //TOOD: Enviar a Favoritos
+            Navigator.pushNamed(context, RoutesApp.favorites);
           },
           child: const Icon(Icons.favorite, color: ColorsApp.red),
         ),

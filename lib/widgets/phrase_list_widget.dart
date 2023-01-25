@@ -3,41 +3,43 @@ import 'package:flutter/material.dart';
 import 'package:frases/models/phrase_model.dart';
 import 'package:frases/routes/routes.dart';
 import 'package:frases/utils/assets_location.dart';
+import 'package:frases/widgets/circular_progress_widget.dart';
 
-class PhraseList extends StatelessWidget {
-  const PhraseList({super.key});
+class PhraseListWidget extends StatelessWidget {
+  final ScrollController? scrollController;
+  final List<Phrase> phrases;
+  final bool hasMore;
+
+  const PhraseListWidget(
+      {super.key,
+      this.scrollController,
+      required this.phrases,
+      required this.hasMore});
 
   @override
   Widget build(BuildContext context) {
-    final phrases = List.generate(
-        20,
-        (index) => Phrase(
-            id: "$index",
-            category: "category",
-            status: 1,
-            img:
-                "https://res.cloudinary.com/franciscotp90/image/upload/v1639084843/FrasesParaCompartir/NAVIDE%C3%91AS/qyi7ceps1799ztis0ys7.webp",
-            phrase: "El mejor regalo en esta Navidad es tu sonrisa."));
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
 
     return GridView.builder(
-        // controller: scrollController,
+        controller: scrollController,
         physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 9 / 16,
             crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
-        // itemCount: frases.length + (hayMas ? 1 : 0),
-        itemCount: phrases.length,
+            mainAxisSpacing: 10,
+            crossAxisCount: isPortrait ? 2 : 3),
+        itemCount: phrases.length + (hasMore ? 1 : 0),
         padding: const EdgeInsets.only(left: 10, right: 10, bottom: 30),
         itemBuilder: (BuildContext context, int index) {
-          // if (index == phrases.length) {
-          //   return const CircularProgressWidget();
-          // }
+          if (index == phrases.length) {
+            return const CircularProgressWidget();
+          }
           return GestureDetector(
               onTap: () => Navigator.pushNamed(context, RoutesApp.detail,
                   arguments: phrases[index]),
               child: Container(
+                  height: 100,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                   ),

@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:frases/models/phrase_model.dart';
+import 'package:frases/providers/phrases_provider.dart';
 import 'package:frases/screens/detail/components/glassmorphism.dart';
+import 'package:frases/theme/colors.dart';
+import 'package:provider/provider.dart';
 
-class ShareButtons extends StatelessWidget {
+class ShareButtons extends StatefulWidget {
   final Phrase phrase;
   const ShareButtons({super.key, required this.phrase});
 
+  @override
+  State<ShareButtons> createState() => _ShareButtonsState();
+}
+
+class _ShareButtonsState extends State<ShareButtons> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -22,33 +30,38 @@ class ShareButtons extends StatelessWidget {
                   texto: "Compartir Texto",
                   icon: Icons.text_fields,
                   onPressed: () {
-                    // try {
-                    //   Share.share(phrase.phrase);
-                    // } catch (e) {}
+                    try {
+                      Provider.of<PhrasesProvider>(context, listen: false)
+                          .shareText(widget.phrase.phrase);
+                    } catch (e) {
+                      throw Exception('Error Share Text $e');
+                    }
                   }),
               _ShareButton(
                 texto: "Compartir Imagen",
                 icon: Icons.image,
                 onPressed: () async {
-                  // final resp =
-                  //     await Provider.of<FrasesProvider>(context, listen: false)
-                  //         .shareImg(phrase);
-                  // if (!resp) {
-                  //   final snackBar = SnackBar(
-                  //       backgroundColor: ColorsApp.red,
-                  //       content: Row(
-                  //         children: const [
-                  //           Icon(Icons.info_outline, color: Colors.white),
-                  //           SizedBox(width: 5.0),
-                  //           Text(
-                  //             "Conéctate a Internet",
-                  //             style: TextStyle(
-                  //                 color: Colors.white, fontSize: 20.0),
-                  //           )
-                  //         ],
-                  //       ));
-                  //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  // }
+                  final resp =
+                      await Provider.of<PhrasesProvider>(context, listen: false)
+                          .shareImg(widget.phrase);
+                  if (!resp) {
+                    final snackBar = SnackBar(
+                        backgroundColor: ColorsApp.red,
+                        content: Row(
+                          children: const [
+                            Icon(Icons.info_outline, color: Colors.white),
+                            SizedBox(width: 5.0),
+                            Text(
+                              "Conéctate a Internet",
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20.0),
+                            )
+                          ],
+                        ));
+                    if (mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  }
                 },
               ),
             ],

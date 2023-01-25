@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:frases/models/phrase_model.dart';
+import 'package:frases/providers/favorite_phrases_provider.dart';
 import 'package:frases/theme/colors.dart';
 import 'package:like_button/like_button.dart';
+import 'package:provider/provider.dart';
 
 class FavoriteButton extends StatefulWidget {
   final Phrase phrase;
@@ -22,26 +24,26 @@ class _LikeButtonWidgetState extends State<FavoriteButton> {
   }
 
   check() async {
-    // final res =
-    //     await Provider.of<FrasesFavoritasProvider>(context, listen: false)
-    //         .checkIsFavorite(widget.phrase.id);
+    final isFavorite = await context
+        .read<FavoritePhrasesProvider>()
+        .checkIsFavorite(widget.phrase.id);
 
     if (mounted) {
       setState(() {
         // _isLiked = res;
-        _isLiked = true;
+        _isLiked = isFavorite;
       });
     }
   }
 
   addToFavorite() async {
-    // await Provider.of<FrasesFavoritasProvider>(context, listen: false)
-    //     .addToFavorites(widget.phrase);
+    await context.read<FavoritePhrasesProvider>().addToFavorites(widget.phrase);
   }
 
   deleteFavorite() async {
-    // await Provider.of<FrasesFavoritasProvider>(context, listen: false)
-    //     .deleteFromFavorites(widget.phrase.id);
+    await context
+        .read<FavoritePhrasesProvider>()
+        .deleteFromFavorites(widget.phrase.id);
   }
 
   @override

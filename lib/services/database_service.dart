@@ -19,13 +19,13 @@ class DatabaseService {
     try {
       io.Directory applicationDirectory =
           await getApplicationDocumentsDirectory();
-      String dbPathNombres = path.join(applicationDirectory.path, dbName);
-      await deleteDatabase(dbPathNombres);
+      String dbPathName = path.join(applicationDirectory.path, dbName);
+      await deleteDatabase(dbPathName);
       ByteData data = await rootBundle.load(path.join("assets", "db", dbName));
       List<int> bytes =
           data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-      await io.File(dbPathNombres).writeAsBytes(bytes, flush: true);
-      _db = await openDatabase(dbPathNombres, version: 1);
+      await io.File(dbPathName).writeAsBytes(bytes, flush: true);
+      _db = await openDatabase(dbPathName, version: 1);
 
       return _db;
     } catch (e) {

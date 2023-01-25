@@ -1,6 +1,7 @@
-import 'package:frases/models/phrase_model.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as path;
+import 'package:sqflite/sqflite.dart';
+
+import 'package:frases/models/phrase_model.dart';
 
 class FavoritesDatabase {
   static final FavoritesDatabase instance = FavoritesDatabase._init();
@@ -35,9 +36,4 @@ CREATE TABLE ${PhraseTable.tableName} (
 )
 ''');
   }
-
-  // Future closeDB() async {
-  //   final db = await instance.database;
-  //   db.close();
-  // }
 }

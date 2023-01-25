@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frases/widgets/phrase_list.dart';
+import 'package:frases/models/phrase_model.dart';
+import 'package:frases/providers/phrases_provider.dart';
+import 'package:frases/widgets/circular_progress_widget.dart';
+import 'package:frases/widgets/phrase_list_widget.dart';
+import 'package:provider/provider.dart';
 
 class PhraseSearchDelegate extends SearchDelegate {
   @override
@@ -16,6 +20,7 @@ class PhraseSearchDelegate extends SearchDelegate {
   Widget? buildLeading(BuildContext context) {
     return IconButton(
         onPressed: () {
+          Provider.of<PhrasesProvider>(context, listen: false).dipose();
           close(context, null);
         },
         icon: const Icon(Icons.arrow_back));
@@ -23,7 +28,12 @@ class PhraseSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return const PhraseList();
+    final List<Phrase> searchResult = context.select(
+        (PhrasesProvider phrasesProvider) => phrasesProvider.getPhrasesSerched);
+
+    return searchResult.isEmpty
+        ? _emptySearch()
+        : PhraseListWidget(phrases: searchResult, hasMore: false);
   }
 
   Widget _emptySearch() {
@@ -37,7 +47,27 @@ class PhraseSearchDelegate extends SearchDelegate {
     if (query.isEmpty) {
       return const SizedBox();
     }
+    final frasesProvider = Provider.of<PhrasesProvider>(context, listen: false);
+    frasesProvider.getSuggestionsByQuery(query);
+    return StreamBuilder<List<Phrase>>(
+      stream: frasesProvider.suggestionStream,
+      builder: (BuildContext context, AsyncSnapshot<List<Phrase>> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done ||
+            snapshot.connectionState == ConnectionState.active) {
+          if (snapshot.data == null || snapshot.data!.isEmpty) {
+            return _emptySearch();
+          } else {
+            final List<Phrase> phraseList = snapshot.data!;
+            Future.microtask(() {
+              context.read<PhrasesProvider>().setPhrasesSerched = phraseList;
+            });
 
-    return const PhraseList();
+            return PhraseListWidget(phrases: phraseList, hasMore: false);
+          }
+        } else {
+          return const CircularProgressWidget();
+        }
+      },
+    );
   }
 }

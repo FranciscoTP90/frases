@@ -8,11 +8,13 @@ class PhraseImg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     return CachedNetworkImage(
       imageUrl: imgUrl,
       width: double.infinity,
       height: double.infinity,
-      fit: BoxFit.cover,
+      fit: isPortrait ? BoxFit.cover : BoxFit.fitHeight,
       placeholder: (context, url) => Image.asset(
         AssetsLocation.placeholder,
         width: double.infinity,
