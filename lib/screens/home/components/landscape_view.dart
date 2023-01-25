@@ -3,7 +3,6 @@ import '../../../routes/routes.dart';
 import '../../../theme/colors.dart';
 import '../../../widgets/widgets.dart';
 import '../../screens.dart';
-import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -63,7 +62,6 @@ class LandscapeView extends StatelessWidget {
                         final category = provider.getCategories[index];
                         return GestureDetector(
                           onTap: () async {
-                            log(category.name);
                             Navigator.push(context, PageRouteBuilder(
                               pageBuilder:
                                   (context, animation, secondaryAnimation) {

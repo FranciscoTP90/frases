@@ -110,7 +110,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         _connection = false;
         _isLoading = false;
-        print("CONNECTION $_connection");
       });
       return false;
     }
