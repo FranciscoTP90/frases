@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frases/theme/colors.dart';
+
+import 'colors.dart';
 
 class ThemeApp {
   static const TextStyle titleTextStyle = TextStyle(
