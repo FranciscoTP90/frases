@@ -24,14 +24,6 @@ class CategoriesProvider extends ChangeNotifier {
   int? _total;
   List<Map<String, dynamic>>? _queryRes;
 
-  // Category? _selectedCategory;
-  // Category? get selectedCategory => _selectedCategory;
-
-  // set setSelectedcategory(Category category) {
-  //   _selectedCategory = category;
-  //   notifyListeners();
-  // }
-
   CategoriesProvider() {
     loadCategories();
   }
@@ -80,8 +72,6 @@ class CategoriesProvider extends ChangeNotifier {
 
           final List<Category> categoryList =
               _queryRes!.map((json) => Category.fromJson(json)).toList();
-
-          // _selectedCategory ??= categoryList.first;
 
           _categories = [..._categories, ...categoryList];
           _isLoading = false;

@@ -1,6 +1,8 @@
 # Frases para compartir
 
 Aplicación móvil desarrollada con Flutter ♥.
+Te permite compartir imagenes y textos ademas de guardar
+tus frases favoritas.  
 
 ## Requerimientos
 Base de Datos SQLite:
@@ -15,6 +17,7 @@ assets/db y dentro agregar la base de datos creada.
 
 ## Caracteristicas principales
 * Provider como manejador de estados
+* Inyección de dependencias
 * Base de Datos SQLite
 * Manejo de Singleton
 * Tema personalizado

@@ -41,7 +41,7 @@ class _CategoryListState extends State<_CategoryList> {
     });
   }
 
-  _loadCategories() async {
+  Future<void> _loadCategories() async {
     await context.read<CategoriesProvider>().loadCategories();
   }
 

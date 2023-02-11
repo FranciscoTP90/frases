@@ -39,11 +39,15 @@ class PhrasesProvider extends ChangeNotifier {
   }
 
   final debouncer = Debouncer(duration: const Duration(milliseconds: 500));
-  final StreamController<List<Phrase>> _suggestionStreamController =
-      StreamController.broadcast();
+  StreamController<List<Phrase>>? _suggestionStreamController;
 
-  Stream<List<Phrase>> get suggestionStream =>
-      _suggestionStreamController.stream;
+  set initStreamController(StreamController<List<Phrase>> streamController) {
+    _suggestionStreamController = streamController;
+    notifyListeners();
+  }
+
+  Stream<List<Phrase>>? get suggestionStream =>
+      _suggestionStreamController?.stream;
 
   PhrasesProvider() {
     loadPhrases();
@@ -126,7 +130,8 @@ class PhrasesProvider extends ChangeNotifier {
     debouncer.value = '';
     debouncer.onValue = (value) async {
       final results = await searchPhrase(value);
-      _suggestionStreamController.add(results);
+
+      _suggestionStreamController!.add(results);
     };
     final timer = Timer.periodic(const Duration(milliseconds: 300), (timer) {
       debouncer.value = searchTerm;
@@ -153,6 +158,6 @@ class PhrasesProvider extends ChangeNotifier {
   }
 
   void dipose() {
-    _suggestionStreamController.close();
+    _suggestionStreamController?.close();
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../../models/phrase_model.dart';
 import '../../providers/providers.dart';
 import '../../widgets/widgets.dart';
@@ -47,6 +49,7 @@ class PhraseSearchDelegate extends SearchDelegate {
       return const SizedBox();
     }
     final frasesProvider = Provider.of<PhrasesProvider>(context, listen: false);
+    // frasesProvider.setStreamController = StreamController.broadcast();
     frasesProvider.getSuggestionsByQuery(query);
     return StreamBuilder<List<Phrase>>(
       stream: frasesProvider.suggestionStream,

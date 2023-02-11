@@ -23,7 +23,7 @@ class _LikeButtonWidgetState extends State<FavoriteButton> {
     Future.microtask(() => check());
   }
 
-  check() async {
+  Future<void> check() async {
     final isFavorite = await context
         .read<FavoritePhrasesProvider>()
         .checkIsFavorite(widget.phrase.id);
@@ -35,11 +35,11 @@ class _LikeButtonWidgetState extends State<FavoriteButton> {
     }
   }
 
-  addToFavorite() async {
+  Future<void> addToFavorite() async {
     await context.read<FavoritePhrasesProvider>().addToFavorites(widget.phrase);
   }
 
-  deleteFavorite() async {
+  Future<void> deleteFavorite() async {
     await context
         .read<FavoritePhrasesProvider>()
         .deleteFromFavorites(widget.phrase.id);

@@ -1,3 +1,8 @@
+import 'dart:async';
+
+import 'package:provider/provider.dart';
+
+import '../../../providers/phrases_provider.dart';
 import '../../../routes/routes.dart';
 import '../../../theme/colors.dart';
 import '../../search/search_delegate_screen.dart';
@@ -17,8 +22,11 @@ class AppBarHome extends StatelessWidget with PreferredSizeWidget {
           mini: true,
           elevation: 0.0,
           backgroundColor: ColorsApp.greyLight,
-          onPressed: () =>
-              showSearch(context: context, delegate: PhraseSearchDelegate()),
+          onPressed: () {
+            Provider.of<PhrasesProvider>(context, listen: false)
+                .initStreamController = StreamController.broadcast();
+            showSearch(context: context, delegate: PhraseSearchDelegate());
+          },
           child: const Icon(Icons.search, color: Colors.grey),
         ),
         FloatingActionButton(

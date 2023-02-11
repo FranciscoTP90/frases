@@ -6,12 +6,11 @@ import 'package:sqflite/sqflite.dart';
 
 class PhrasesByCategoryProvider extends ChangeNotifier {
   bool _isLoading = false;
-  // bool get isLoading => _isLoading;
+
   bool _hasMore = true;
   bool get hasMore => _hasMore;
 
   int _page = 0;
-  // int get page => _page;
 
   int? _total;
   List<Map<String, dynamic>>? _queryRes;
